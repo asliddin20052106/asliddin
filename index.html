@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <title>Asliddin Boboyev - AI/ML & Web Developer</title>
+    <link rel="icon" href="images/icon.png" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Asliddin Boboyev - Sun'iy intellekt va mashina o'rganish mutaxassisi" name="description" />
+    <meta content="Asliddin Boboyev" name="author" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap" />
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/coloring.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #CF1F1F;
+            --secondary-color: #2D5FDE;
+            --accent-color: #F0B90B;
+            --success-color: #2ECC71;
+            --dark-bg: #0A0A0A;
+            --card-bg: #141414;
+            --text-light: #F5F5F5;
+            --text-gray: #AAAAAA;
+        }
+
+        body.onepage.dark-scheme {
+            background-color: var(--dark-bg);
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+            overflow: visible;
+            padding: 100px 0 50px; /* ◀━ Yuqoriga joy qo'shish */
+        }
+
+        .profile-container {
+            position: absolute;
+            right: 6%;
+            top: 25%; /* ◀━ ENG YUQORI */
+            transform: translateY(-50%);
+            width: 430px;
+            height: 430px;
+            z-index: 100;
+        }      
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50% !important;
+            object-fit: cover;
+            border: 12px solid rgba(207, 31, 31, 0.2);
+            box-shadow: 
+                0 0 30px rgba(207, 31, 31, 0.6),
+                0 0 80px rgba(207, 31, 31, 0.4),
+                0 0 150px rgba(207, 31, 31, 0.2);
+            transition: all 0.3s ease;
+            filter: brightness(0.95) contrast(1.05);
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        .profile-image:hover {
+            border-color: rgba(207, 31, 31, 0.3);
+            box-shadow: 
+                0 0 40px rgba(207, 31, 31, 0.8),
+                0 0 100px rgba(207, 31, 31, 0.5),
+                0 0 180px rgba(207, 31, 31, 0.3);
+            transform: scale(1.05);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(207, 31, 31, 0.6), 0 0 80px rgba(207, 31, 31, 0.4), 0 0 150px rgba(207, 31, 31, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(207, 31, 31, 0.8), 0 0 100px rgba(207, 31, 31, 0.5), 0 0 180px rgba(207, 31, 31, 0.3); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 30;
+            max-width: 750px;
+            padding-left: 10%;
+            margin-top: -20px;
+        }
+
+        #mainmenu li a {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 25px;
+            transition: all 0.3s ease;
+            color: var(--text-gray) !important;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+
+        #mainmenu li a:hover,
+        #mainmenu li a.active {
+            color: var(--text-light) !important;
+            background: rgba(207, 31, 31, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(207, 31, 31, 0.3);
+        }
+
+        #mainmenu li a span {
+            background: var(--primary-color);
+            height: 3px;
+            bottom: -5px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #CF1F1F, #FF6B6B, #F0B90B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 0.8px;
+            opacity: 0.9;
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            max-width: 750px;
+        }
+
+        .info-card-large {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(207, 31, 31, 0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .info-card-large:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(207, 31, 31, 0.5);
+            box-shadow: 0 25px 50px rgba(207, 31, 31, 0.3);
+        }
+
+        .info-card-large:hover::before {
+            opacity: 1;
+        }
+
+        .info-icon-large {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(207, 31, 31, 0.2), rgba(45, 95, 222, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 30px;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .info-card-large:hover .info-icon-large {
+            transform: rotate(15deg) scale(1.1);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .info-content h4 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-content p {
+            color: var(--text-gray);
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            height: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-18px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(207, 31, 31, 0.3);
+            border-color: var(--primary-color);
+            background: linear-gradient(145deg, var(--card-bg), #1A1A1A);
+        }
+
+        .skill-card i {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--accent-color);
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            transform: scaleY(0);
+            transition: transform 0.6s ease;
+            transform-origin: top;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(15px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(207, 31, 31, 0.2);
+        }
+
+        .timeline-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.9));
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(207, 31, 31, 0.25);
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.95), rgba(50, 50, 50, 0.95));
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(207, 31, 31, 0.15), rgba(45, 95, 222, 0.15));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 32px;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.15);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .contact-card h4 {
+            color: var(--text-light);
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            color: var(--text-gray);
+            font-size: 17px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .contact-card.phone p {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            margin: 0 15px;
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-12px) scale(1.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .social-btn:hover::before {
+            transform: scale(1);
+        }
+
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #006699);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+        }
+
+        .btn-linkedin {
+            background: linear-gradient(135deg, #0077B5, #00A0DC);
+        }
+
+        .btn-github {
+            background: linear-gradient(135deg, #333333, #666666);
+        }
+
+        .btn-email {
+            background: linear-gradient(135deg, #EA4335, #D14836);
+        }
+
+        footer {
+            background: rgba(10, 10, 10, 0.98);
+            border-top: 2px solid rgba(255, 255, 255, 0.08);
+            padding: 35px 0;
+            margin-top: 100px;
+        }
+
+        .copy {
+            color: var(--text-gray);
+            font-size: 16px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* TEXNOLOGIK MAHORAT STILLARI */
+        .tech-skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 25px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .tech-category-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform 0.7s ease;
+            transform-origin: left;
+        }
+
+        .tech-category-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(207, 31, 31, 0.3);
+            border-color: rgba(207, 31, 31, 0.4);
+        }
+
+        .tech-category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .tech-category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(207, 31, 31, 0.2), rgba(45, 95, 222, 0.2));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 28px;
+            color: var(--primary-color);
+            transition: all 0.5s ease;
+        }
+
+        .tech-category-card:hover .tech-category-icon {
+            transform: rotate(15deg) scale(1.1);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .tech-category-header h4 {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 0.8px;
+        }
+
+        .tech-tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tech-tag-animated {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            color: var(--text-light);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .tech-tag-animated::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(207, 31, 31, 0.25), rgba(45, 95, 222, 0.25));
+            transition: width 0.7s ease;
+            z-index: 1;
+        }
+
+        .tech-tag-animated:hover {
+            transform: translateY(-5px) scale(1.08);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 25px rgba(207, 31, 31, 0.25);
+            color: white;
+        }
+
+        .tech-tag-animated:hover::before {
+            width: 100%;
+        }
+
+        .tech-tag-animated span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tech-tag-animated::after {
+            content: attr(data-skill) '%';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-tag-animated:hover::after {
+            opacity: 1;
+            top: -40px;
+        }
+
+        .tech-stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .tech-stat-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.9));
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        .tech-stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(207, 31, 31, 0.2);
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(207, 31, 31, 0.15), rgba(45, 95, 222, 0.15));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            font-size: 32px;
+            color: var(--primary-color);
+            transition: all 0.5s ease;
+        }
+
+        .tech-stat-card:hover .stat-icon {
+            transform: scale(1.15) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--text-light);
+            line-height: 1;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-gray);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ANIMATION KEYFRAMES */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .stat-number.animated {
+            animation: countUp 1.2s ease-out forwards;
+        }
+
+        .highlight-text {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: rgba(207, 31, 31, 0.15);
+            color: var(--primary-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(207, 31, 31, 0.25);
+        }
+
+        /* RESPONSIVE TUZATISHLAR */
+        @media (max-width: 1400px) {
+            .profile-container {
+                width: 380px;
+                height: 380px;
+                right: 6%;
+            }
+
+            .hero-title {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .profile-container {
+                width: 350px;
+                height: 350px;
+                right: 5%;
+            }
+
+            .hero-content {
+                max-width: 700px;
+            }
+
+            .info-section {
+                grid-template-columns: repeat(3, minmax(220px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .profile-container {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 320px;
+                height: 320px;
+                margin: 40px auto;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding-left: 5%;
+                text-align: left;
+            }
+
+            .info-section {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #mainmenu li a {
+                font-size: 15px;
+                padding: 8px 18px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .profile-container {
+                width: 280px;
+                height: 280px;
+                margin: 30px auto;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .social-btn {
+                width: 65px;
+                height: 65px;
+                margin: 0 12px;
+                font-size: 24px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-tag-animated {
+                padding: 10px 20px;
+                font-size: 14px;
+                min-width: 110px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tech-stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-category-card {
+                padding: 25px;
+            }
+
+            .profile-container {
+                width: 300px;
+                height: 300px;
+                margin: 30px auto;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wow.fadeInUp {
+            animation-name: fadeInUp;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .wow.fadeIn {
+            animation-name: fadeInUp;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+    </style>
+</head>
+
+<body class="onepage dark-scheme">
+    <div id="wrapper">
+        <!-- HEADER -->
+        <header class="transparent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="de-flex sm-pt10">
+                            <div class="de-flex-col"></div>
+                            <div class="de-flex-col header-col-right">
+                                <ul id="mainmenu">
+                                    <li><a class="active" href="#top">HOME</a></li>
+                                    <li><a href="#section-about">MEN HAQIMDA</a></li>
+                                    <li><a href="#section-services">QOBILIYATLAR</a></li>
+                                    <li><a href="#section-resume">TAJRIBA</a></li>
+                                    <li><a href="#section-contact">BOG'LANISH</a></li>
+                                </ul>
+                                <div class="menu_side_area">
+                                    <span id="menu-btn"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- CONTENT -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+
+            <!-- PRELOADER -->
+            <div id="preloader">
+                <div class="preloader1"></div>
+            </div>
+
+            <!-- HERO SECTION -->
+            <section class="hero-section text-light">
+                <div class="profile-container wow fadeIn" data-wow-delay="0.5s">
+                    <img src="images-fitness-instructor/gallery/me.jpg" alt="Asliddin Boboyev" class="profile-image">
+                </div>
+
+                <div class="v-center">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <div class="hero-content">
+                                    <h6 class="wow fadeInUp" data-wow-delay="0.3s"
+                                        style="color: var(--accent-color); letter-spacing: 3px; font-weight: 600; margin-bottom: 15px; font-size: 16px;">
+                                        <i class="fas fa-star" style="margin-right: 12px; font-size: 14px;"></i> AI/ML &
+                                        CLOUD ENGINEER
+                                    </h6>
+                                    <div class="hero-title wow fadeInUp" data-wow-delay="0.4s">
+                                        ASLIDDIN BOBOYEV
+                                    </div>
+                                    <div class="hero-subtitle wow fadeInUp" data-wow-delay="0.5s">
+                                        Full-Stack Developer • Python Expert • Cloud Solutions Architect
+                                    </div>
+
+                                    <!-- INFO CARDS -->
+                                    <div class="info-section wow fadeInUp" data-wow-delay="0.6s">
+                                        <div class="info-card-large">
+                                            <div class="info-icon-large">
+                                                <i class="fas fa-graduation-cap"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4>MUTAXASSISLIK</h4>
+                                                <p>Sun'iy Intellekt & Mashina O'rganish sohasida 3+ yillik tajriba. Deep
+                                                    Learning, Computer Vision, NLP va ma'lumotlar tahlili bo'yicha
+                                                    mutaxassis.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="info-card-large">
+                                            <div class="info-icon-large">
+                                                <i class="fas fa-code"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4>TEXNOLOGIYALAR</h4>
+                                                <p>Python, JavaScript, React, Node.js, Django, AWS, Docker, Kubernetes,
+                                                    TensorFlow, PyTorch, FastAPI. Zamonaviy texnologiyalar bo'yicha keng
+                                                    ko'nikma.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="info-card-large">
+                                            <div class="info-icon-large">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </div>
+                                            <div class="info-content">
+                                                <h4>MANZIL</h4>
+                                                <p>Samarqand shahri, O'zbekiston. Masofaviy ishlash imkoniyati mavjud.
+                                                    Butun dunyo bo'ylab loyihalar va hamkorlik.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#section-about" class="mouse-icon-click scroll-to wow fadeInUp" data-wow-delay="0.8s">
+                    <span class="mouse fadeScroll relative">
+                        <span class="scroll"></span>
+                    </span>
+                </a>
+            </section>
+
+            <!-- MEN HAQIMDA -->
+            <section id="section-about" style="padding: 120px 0; background: var(--dark-bg);">
+                <div class="container relative">
+                    <div class="row">
+                        <div class="col-md-12 text-center wow fadeInUp">
+                            <h2 class="section-title">MEN HAQIMDA</h2>
+                            <div class="space-border"></div>
+                        </div>
+                        <div class="col-md-10 offset-md-1 text-center wow fadeInUp" data-wow-delay="0.2s">
+                            <p
+                                style="color: var(--text-gray); font-size: 1.25rem; line-height: 1.8; margin-bottom: 50px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                                22 yoshli sun'iy intellekt va web texnologiyalari mutaxassisi. 2023-yildan beri
+                                professional dasturlash bilan shug'ullanaman.
+                                <span class="highlight-text">Sun'iy intellekt, mashina o'rganish va bulut
+                                    texnologiyalari</span> sohasida chuqur bilim va amaliy tajribaga ega.
+                                50+ loyiha va 10+ kompleks tizimlarni ishlab chiqqanman. <span
+                                    class="highlight-text">Python, JavaScript va Cloud Computing</span> asosiy
+                                yo'nalishlarim bo'lib,
+                                har bir loyihada innovatsion yechimlar va yuqori sifatli kod yozishga e'tibor qarataman.
+                            </p>
+
+                            <!-- QO'SHIMCHA SHAXSIY MA'LUMOTLAR -->
+                            <div class="row mt-5">
+                                <div class="col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.3s">
+                                    <div class="info-card-large" style="min-height: 200px;">
+                                        <div class="info-icon-large"
+                                            style="width: 65px; height: 65px; font-size: 28px;">
+                                            <i class="fas fa-user-graduate"></i>
+                                        </div>
+                                        <div class="info-content">
+                                            <h4>TA'LIM</h4>
+                                            <p>Samarqand davlat universiteti, Sun'iy intellekt va Mashina o'rganish
+                                                ixtisosligi bo'yicha bakalavr talabasi. Data Science va Computer Vision
+                                                yo'nalishlarida ixtisoslashgan.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-4 wow fadeInUp" data-wow-delay="0.4s">
+                                    <div class="info-card-large" style="min-height: 200px;">
+                                        <div class="info-icon-large"
+                                            style="width: 65px; height: 65px; font-size: 28px;">
+                                            <i class="fas fa-trophy"></i>
+                                        </div>
+                                        <div class="info-content">
+                                            <h4>YUTUQLAR</h4>
+                                            <p>5+ xalqaro sertifikat (AWS Certified, TensorFlow Developer, Django
+                                                Specialist). HealthTech va FinTech sohalarida 20+ AI modeli
+                                                yaratuvchisi. Xalqaro hackathonlar g'olibi.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-double"></div>
+
+                        <!-- TEXNOLOGIK MAHORAT -->
+                        <div class="col-md-12 mt-5">
+                            <h3 class="text-center mb-5"
+                                style="color: var(--text-light); font-size: 2.8rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 50px;">
+                                <i class="fas fa-code" style="color: var(--primary-color); margin-right: 20px;"></i>
+                                TEXNOLOGIK MAHORAT
+                                <i class="fas fa-laptop-code"
+                                    style="color: var(--accent-color); margin-left: 20px;"></i>
+                            </h3>
+
+                            <!-- ANIMATSIYALI TEKNOLOGIYA CARDS -->
+                            <div class="tech-skills-container">
+                                <div class="tech-grid">
+                                    <!-- AI/ML TECHNOLOGIES -->
+                                    <div class="tech-category-card wow fadeInUp" data-wow-delay="0.2s">
+                                        <div class="tech-category-header">
+                                            <div class="tech-category-icon">
+                                                <i class="fas fa-brain"></i>
+                                            </div>
+                                            <h4>AI/ML FRAMEWORKS</h4>
+                                        </div>
+                                        <div class="tech-tags-container">
+                                            <span class="tech-tag-animated" data-skill="95">Python 3.x</span>
+                                            <span class="tech-tag-animated" data-skill="90">TensorFlow</span>
+                                            <span class="tech-tag-animated" data-skill="88">PyTorch</span>
+                                            <span class="tech-tag-animated" data-skill="85">OpenCV</span>
+                                            <span class="tech-tag-animated" data-skill="82">Scikit-learn</span>
+                                            <span class="tech-tag-animated" data-skill="80">Keras</span>
+                                            <span class="tech-tag-animated" data-skill="78">NLTK</span>
+                                            <span class="tech-tag-animated" data-skill="75">Pandas</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- WEB DEVELOPMENT -->
+                                    <div class="tech-category-card wow fadeInUp" data-wow-delay="0.3s">
+                                        <div class="tech-category-header">
+                                            <div class="tech-category-icon">
+                                                <i class="fas fa-code"></i>
+                                            </div>
+                                            <h4>WEB DEVELOPMENT</h4>
+                                        </div>
+                                        <div class="tech-tags-container">
+                                            <span class="tech-tag-animated" data-skill="92">React.js</span>
+                                            <span class="tech-tag-animated" data-skill="90">Node.js</span>
+                                            <span class="tech-tag-animated" data-skill="88">JavaScript</span>
+                                            <span class="tech-tag-animated" data-skill="85">Django</span>
+                                            <span class="tech-tag-animated" data-skill="83">FastAPI</span>
+                                            <span class="tech-tag-animated" data-skill="80">Vue.js</span>
+                                            <span class="tech-tag-animated" data-skill="78">Express.js</span>
+                                            <span class="tech-tag-animated" data-skill="75">TypeScript</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- CLOUD & DEVOPS -->
+                                    <div class="tech-category-card wow fadeInUp" data-wow-delay="0.4s">
+                                        <div class="tech-category-header">
+                                            <div class="tech-category-icon">
+                                                <i class="fas fa-cloud"></i>
+                                            </div>
+                                            <h4>CLOUD & DEVOPS</h4>
+                                        </div>
+                                        <div class="tech-tags-container">
+                                            <span class="tech-tag-animated" data-skill="87">AWS</span>
+                                            <span class="tech-tag-animated" data-skill="85">Docker</span>
+                                            <span class="tech-tag-animated" data-skill="82">Kubernetes</span>
+                                            <span class="tech-tag-animated" data-skill="80">Git</span>
+                                            <span class="tech-tag-animated" data-skill="78">Linux</span>
+                                            <span class="tech-tag-animated" data-skill="75">Terraform</span>
+                                            <span class="tech-tag-animated" data-skill="72">Jenkins</span>
+                                            <span class="tech-tag-animated" data-skill="70">Ansible</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- DATABASES -->
+                                    <div class="tech-category-card wow fadeInUp" data-wow-delay="0.5s">
+                                        <div class="tech-category-header">
+                                            <div class="tech-category-icon">
+                                                <i class="fas fa-database"></i>
+                                            </div>
+                                            <h4>DATABASES</h4>
+                                        </div>
+                                        <div class="tech-tags-container">
+                                            <span class="tech-tag-animated" data-skill="88">PostgreSQL</span>
+                                            <span class="tech-tag-animated" data-skill="85">MongoDB</span>
+                                            <span class="tech-tag-animated" data-skill="82">MySQL</span>
+                                            <span class="tech-tag-animated" data-skill="80">Redis</span>
+                                            <span class="tech-tag-animated" data-skill="75">SQLite</span>
+                                            <span class="tech-tag-animated" data-skill="70">Firebase</span>
+                                            <span class="tech-tag-animated" data-skill="68">Elasticsearch</span>
+                                            <span class="tech-tag-animated" data-skill="65">Cassandra</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ANIMATSIYALI PROGRESS STATS -->
+                                <div class="tech-stats-container wow fadeInUp" data-wow-delay="0.6s">
+                                    <div class="tech-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-rocket"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="stat-number" data-count="50">0</div>
+                                            <div class="stat-label">Bajargan Loyihalar</div>
+                                        </div>
+                                    </div>
+                                    <div class="tech-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="stat-number" data-count="5000">0</div>
+                                            <div class="stat-label">Ish Soati</div>
+                                        </div>
+                                    </div>
+                                    <div class="tech-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-certificate"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="stat-number" data-count="12">0</div>
+                                            <div class="stat-label">Sertifikatlar</div>
+                                        </div>
+                                    </div>
+                                    <div class="tech-stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="stat-content">
+                                            <div class="stat-number" data-count="25">0</div>
+                                            <div class="stat-label">Mamnun Mijozlar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QOBILIYATLAR -->
+            <section id="section-services" style="padding: 120px 0; background: #111111;">
+                <div class="container relative">
+                    <div class="row">
+                        <div class="col-md-12 text-center wow fadeInUp">
+                            <h2 class="section-title">QOBILIYATLAR</h2>
+                            <div class="space-border"></div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="skill-card">
+                                <i class="fas fa-robot"></i>
+                                <h3 style="color: var(--text-light); font-size: 1.8rem; margin-bottom: 15px;">AI/ML
+                                    DEVELOPMENT</h3>
+                                <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.7;">Sun'iy
+                                    intellekt va mashina o'rganish modellarini yaratish, trening va production
+                                    deployment. Kompyuter ko'rish, tabiiy til qayta ishlash, ma'lumotlar tahlili va
+                                    predictive analytics.</p>
+                                <div style="margin-top: 25px;">
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">PyTorch</span>
+                                    <span class="tech-tag">OpenCV</span>
+                                    <span class="tech-tag">Scikit-learn</span>
+                                    <span class="tech-tag">NLP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="skill-card">
+                                <i class="fas fa-laptop-code"></i>
+                                <h3 style="color: var(--text-light); font-size: 1.8rem; margin-bottom: 15px;">WEB
+                                    DEVELOPMENT</h3>
+                                <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.7;">Zamonaviy
+                                    full-stack web ilovalar, progressive web apps, real-time dashboardlar. Responsive
+                                    dizayn, yuqori performance, xavfsizlik va SEO optimallashtirish.</p>
+                                <div style="margin-top: 25px;">
+                                    <span class="tech-tag">React.js</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Django</span>
+                                    <span class="tech-tag">Vue.js</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="skill-card">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3 style="color: var(--text-light); font-size: 1.8rem; margin-bottom: 15px;">CLOUD
+                                    SOLUTIONS</h3>
+                                <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.7;">Bulut
+                                    arxitekturasini loyihalash, microservices, serverless computing, container
+                                    orchestration. AWS, Azure, Google Cloud platformalari. DevOps va CI/CD pipeline'lar.
+                                </p>
+                                <div style="margin-top: 25px;">
+                                    <span class="tech-tag">AWS</span>
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">Kubernetes</span>
+                                    <span class="tech-tag">Terraform</span>
+                                    <span class="tech-tag">CI/CD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAJRIBA -->
+            <section id="section-resume" style="padding: 120px 0; background: var(--dark-bg);">
+                <div class="container relative">
+                    <div class="row">
+                        <div class="col-md-12 text-center wow fadeInUp">
+                            <h2 class="section-title">TAJRIBA</h2>
+                            <div class="space-border"></div>
+                        </div>
+
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="p-4">
+                                <h3 class="s_border"
+                                    style="color: var(--text-light); font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1.5px;">
+                                    ISH TAJRIBASI</h3>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-year"
+                                        style="color: var(--success-color); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">
+                                        2023 - Hozirgacha</div>
+                                    <div class="timeline-title"
+                                        style="color: var(--text-light); font-size: 1.4rem; margin-bottom: 5px;">Senior
+                                        AI/ML Developer</div>
+                                    <div class="timeline-company"
+                                        style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px; font-weight: 500;">
+                                        Tech Innovations Inc. (Masofaviy)</div>
+                                    <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.7;">
+                                        • Sun'iy intellekt modellarini ishlab chiqish va optimallashtirish<br>
+                                        • Computer Vision loyihalari uchun deep learning algoritmlari<br>
+                                        • Ma'lumotlar tahlili va ML pipeline'larini yaratish<br>
+                                        • TensorFlow va PyTorch frameworklarida ishlash<br>
+                                        • 10+ AI loyihani muvaffaqiyatli yakunlash<br>
+                                        • Cloud deployment (AWS SageMaker, Google AI Platform)
+                                    </p>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-year"
+                                        style="color: var(--accent-color); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">
+                                        2022 - 2023</div>
+                                    <div class="timeline-title"
+                                        style="color: var(--text-light); font-size: 1.4rem; margin-bottom: 5px;">
+                                        Full-Stack Developer</div>
+                                    <div class="timeline-company"
+                                        style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px; font-weight: 500;">
+                                        Digital Solutions LLC</div>
+                                    <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.7;">
+                                        • Zamonaviy web ilovalarni ishlab chiqish<br>
+                                        • React va Node.js asosida full-stack loyihalar<br>
+                                        • REST API development va integrasiyalar<br>
+                                        • Microservices arxitekturasi<br>
+                                        • 15+ web loyiha va 5+ mobil ilova<br>
+                                        • Performance optimizatsiyasi va SEO
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="p-4">
+                                <h3 class="s_border"
+                                    style="color: var(--text-light); font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1.5px;">
+                                    TEXNOLOGIK KO'NIKMALAR</h3>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-year"
+                                        style="color: var(--primary-color); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">
+                                        AI/ML Texnologiyalar</div>
+                                    <div class="timeline-title"
+                                        style="color: var(--text-light); font-size: 1.4rem; margin-bottom: 5px;">Asosiy
+                                        Frameworklar</div>
+                                    <div class="timeline-company"
+                                        style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px; font-weight: 500;">
+                                        Python, TensorFlow, PyTorch</div>
+                                    <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.7;">
+                                        • Machine Learning: Regression, Classification, Clustering<br>
+                                        • Deep Learning: CNN, RNN, GAN, Transformers<br>
+                                        • Natural Language Processing (NLP)<br>
+                                        • Computer Vision: Object Detection, Image Segmentation<br>
+                                        • Data Analysis: pandas, numpy, scikit-learn, matplotlib<br>
+                                        • Model Deployment: TensorFlow Serving, ONNX
+                                    </p>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-year"
+                                        style="color: var(--secondary-color); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">
+                                        Web & Cloud</div>
+                                    <div class="timeline-title"
+                                        style="color: var(--text-light); font-size: 1.4rem; margin-bottom: 5px;">
+                                        Full-Stack & DevOps</div>
+                                    <div class="timeline-company"
+                                        style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px; font-weight: 500;">
+                                        JavaScript, AWS, Docker</div>
+                                    <p style="color: var(--text-gray); font-size: 1.05rem; line-height: 1.7;">
+                                        • Frontend: React.js, Vue.js, HTML5, CSS3, Tailwind<br>
+                                        • Backend: Node.js, Express.js, Django, FastAPI<br>
+                                        • Database: PostgreSQL, MongoDB, Redis<br>
+                                        • Cloud: AWS (EC2, S3, Lambda), Docker, Kubernetes<br>
+                                        • DevOps: CI/CD (Jenkins, GitLab CI), Monitoring<br>
+                                        • Testing: Jest, Pytest, Selenium
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BOG'LANISH -->
+            <section id="section-contact" style="padding: 120px 0; background: #111111;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center wow fadeInUp">
+                            <h2 class="section-title">BOG'LANISH</h2>
+                            <div class="space-border"></div>
+                        </div>
+
+                        <div class="col-md-12 text-center wow fadeInUp" data-wow-delay="0.3s" style="margin-top: 70px;">
+                            <!-- SOCIAL MEDIA BUTTONS -->
+                            <div class="mb-5">
+                                <a href="https://t.me/boboyev_asliddin" target="_blank" class="social-btn btn-telegram">
+                                    <i class="fab fa-telegram-plane"></i>
+                                </a>
+
+                                <a href="https://instagram.com/boboyev_asliddin1" target="_blank"
+                                    class="social-btn btn-instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+
+                                <a href="https://www.linkedin.com/in/asliddin-boboyev-05a3113a0" target="_blank"
+                                    class="social-btn btn-linkedin">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+
+                                <a href="https://github.com/asliddin20052106" target="_blank"
+                                    class="social-btn btn-github">
+                                    <i class="fab fa-github"></i>
+                                </a>
+
+                                <a href="mailto:asliddinb2106@gmail.com" class="social-btn btn-email">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- UCHTA CONTACT CARD -->
+                        <div class="contact-info-grid wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4>EMAIL</h4>
+                                <p>asliddinb2106@gmail.com</p>
+                                <p
+                                    style="color: var(--text-gray); font-size: 15px; margin-top: 12px; line-height: 1.5;">
+                                    Professional murojaatlar uchun. 24 soat ichida javob beraman. Loyiha takliflari va
+                                    hamkorlik uchun.</p>
+                            </div>
+
+                            <div class="contact-card phone">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <h4>TELEFON RAQAM</h4>
+                                <p>+998 33 422 20 05</p>
+                                <p
+                                    style="color: var(--text-gray); font-size: 15px; margin-top: 12px; line-height: 1.5;">
+                                    Dushanba-Juma 9:00-18:00. Shoshilinch murojaatlar uchun. WhatsApp ham mavjud.</p>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h4>MANZIL</h4>
+                                <p>Samarqand shahri, O'zbekiston</p>
+                                <p
+                                    style="color: var(--text-gray); font-size: 15px; margin-top: 12px; line-height: 1.5;">
+                                    Masofaviy ishlash imkoniyati. Butun dunyo bo'ylab loyihalar. Timezone: GMT+5.</p>
+                            </div>
+                        </div>
+
+                        <!-- QO'SHIMCHA SHAXSIY MA'LUMOT -->
+                        <div class="col-md-12 text-center mt-5 wow fadeInUp" data-wow-delay="0.7s">
+                            <div class="info-card-large"
+                                style="max-width: 900px; margin: 0 auto; background: rgba(20, 20, 20, 0.7); min-height: auto; padding: 40px;">
+                                <div class="info-icon-large" style="width: 70px; height: 70px; font-size: 30px;">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>QO'SHIMCHA MA'LUMOT</h4>
+                                    <p
+                                        style="color: var(--text-gray); font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                                        • <strong>Ish vaqti:</strong> Fleksibil (masofaviy ishlash). Full-time yoki
+                                        part-time loyihalar.<br>
+                                        • <strong>Til bilish:</strong> O'zbek (ona tili), Rus (B2), Ingliz (C1), Arabic
+                                        (A1).<br>
+                                        • <strong>Loyiha turi:</strong> AI/ML, Web Development, Cloud Solutions, Mobile
+                                        Apps, ERP systems.<br>
+                                        • <strong>Murojaat qilish:</strong> Email, Telegram yoki LinkedIn orqali.<br>
+                                        • <strong>Javob vaqti:</strong> 24 soat ichida (ish kunlari), 48 soat ichida
+                                        (dam olish kunlari).<br>
+                                        
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span class="copy">© 2026 ASLIDDIN BOBOYEV - AI/ML & FULL-STACK DEVELOPER | SAMARQAND,
+                            UZBEKISTAN</span>
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Progress barlarni animatsiya qilish
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 300);
+            });
+
+            // Skill Cards hover
+            const skillCards = document.querySelectorAll('.skill-card');
+            skillCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-18px) scale(1.03)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Timeline hover
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateX(15px)';
+                });
+
+                item.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Tech tag hover
+            const techTags = document.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+
+                tag.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Animated Tech tags hover
+            const animatedTechTags = document.querySelectorAll('.tech-tag-animated');
+            animatedTechTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function () {
+                    this.style.animation = 'pulse 0.5s ease';
+                });
+
+                tag.addEventListener('mouseleave', function () {
+                    this.style.animation = 'none';
+                });
+            });
+
+            // Counter Animation for Stats
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (current > target) current = target;
+                        counter.textContent = Math.floor(current);
+                        setTimeout(updateCounter, 16);
+                    } else {
+                        counter.textContent = target;
+                        counter.classList.add('animated');
+                    }
+                };
+
+                // Start counter when element is in viewport
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(counter);
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Typed.js
+            if (typeof $ !== 'undefined' && $.fn.typed) {
+                $(".typed").typed({
+                    stringsElement: $('.typed-strings'),
+                    typeSpeed: 60,
+                    backDelay: 1500,
+                    loop: true,
+                    contentType: 'html',
+                    loopCount: false,
+                    callback: function () { },
+                    resetCallback: function () { }
+                });
+            }
+
+            // Add scroll effect to header
+            window.addEventListener('scroll', function () {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.style.backgroundColor = 'transparent';
+                    header.style.backdropFilter = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
